@@ -411,31 +411,30 @@
           <!-- Formulario Contacto -->
           <div class="col-lg-8">
             <form action="" method="post" class="email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+                <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Tu Nombre" required="">
+                  <div class="col-md-6">
+                    <input type="text" id="nombre" name="name" class="form-control" placeholder="Tu Nombre" required="">
+                  </div>
+  
+                  <div class="col-md-6 ">
+                    <input type="email" id="email" class="form-control" name="email" placeholder="Tu emaill" required="">
+                  </div>
+  
+                  <div class="col-md-12">
+                    <input type="text" id="asunto" class="form-control" name="subject" placeholder="Asunto" required="">
+                  </div>
+  
+                  <div class="col-md-12">
+                    <textarea id="mensaje" class="form-control" name="message" rows="6" placeholder="Mensaje" required=""></textarea>
+                  </div>
+
+                    <div class="col-md-12 text-center">
+                        <button type="button" onclick="enviarCorreo()">Enviar Mensaje</button>
+                    </div>
                 </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Tu emaill" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Asunto" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <button type="submit">Enviar Mensaje</button>
-                </div>
-
-              </div>
             </form>
-          </div><!-- Fín Formulario Contacto -->
+        </div><!-- Fín Formulario Contacto -->
 
         </div>
 
@@ -468,6 +467,27 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+      // Funcion enviar correo
+    function enviarCorreo() {
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const asunto = document.getElementById('asunto').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        // Crear el enlace de correo
+        const mailtoLink = `mailto:fot1983@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(mensaje)}`;
+
+        // Abrir la ventana de correo
+        window.open(mailtoLink);
+
+        // Limpiar los campos del formulario
+        document.getElementById('nombre').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('asunto').value = '';
+            document.getElementById('mensaje').value = '';
+    }
+</script>
 
 </body>
 
