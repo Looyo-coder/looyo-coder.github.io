@@ -8,6 +8,7 @@ function mostrarOpciones() {
     2. Señal y llamadas
     3. Oferta comercial
     4. Otras consultas
+    5. Salir
     `;
 
     let eleccion = prompt(opciones);
@@ -17,7 +18,7 @@ function mostrarOpciones() {
             mostrarOpcionesBoletas();
             break;
         case '2':
-            mostrarOpcionesSenal()
+            mostrarOpcionesSenal();
             break;
         case '3':
             mostrarOpcionesOferta();
@@ -26,7 +27,10 @@ function mostrarOpciones() {
             mostrarOpcionesOtras();
             break;
         default:
-            alert("Opción no válida. Por favor, elige una opción del 1 al 4.");
+        case '5':
+            window.location.href = "https://looyo-coder.github.io/index.html";
+            break;
+            alert("Opción no válida. Por favor, elige una opción del 1 al 5.");
             mostrarOpciones(); // Volver a mostrar las opciones si la elección no es válida
             break;
     }
